@@ -21,4 +21,4 @@ EXPOSE 80
 HEALTHCHECK  --interval=15m \
     --start-interval=30s \
     --start-period=30s \
-    CMD curl http://localhost:80/${CONFIG_PATH} || exit 1
+    CMD curl -fs http://localhost:80/${CONFIG_PATH} || exit 1
