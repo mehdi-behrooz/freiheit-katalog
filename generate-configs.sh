@@ -44,7 +44,7 @@ generate $WS $XRAY_WS_USER_ID_WARP "WS Warp" $ws $warp
 
 export host=$CLOUDFLARE_IP
 export sni=$CLOUDFLARE_WORKER
-export path="/"
+export path=$XRAY_WS_PATH
 
 generate $WS $XRAY_WS_USER_ID_DIRECT "Worker" $ws $worker
 generate $WS $XRAY_WS_USER_ID_WARP "Worker Warp" $ws $worker $warp
