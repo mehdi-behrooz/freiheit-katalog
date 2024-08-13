@@ -30,10 +30,6 @@ if [[ $WARP_ENABLED == true ]]; then warp=1; else warp=0; fi
 if [[ $TUNNEL_ENABLED == true ]]; then tunnel=1; else tunnel=0; fi;
 if [[ -n $CLOUDFLARE_WORKER ]]; then worker=1; else worker=0; fi
 
-export host=$TEHRAN_DOMAIN
-
-generate $TCP $XRAY_TCP_USER_ID_DIRECT "Tunnel" $tcp $tunel
-generate $TCP $XRAY_TCP_USER_ID_WARP "Tunnel Warp" $tcp $tunnel $warp
 
 export host=$CLOUDFLARE_IP
 export sni=$XRAY_WS_HOST
@@ -56,3 +52,7 @@ export public_key=$XRAY_REALITY_PUBLIC_KEY
 generate $REALITY $XRAY_REALITY_USER_ID_DIRECT "Reality" $reality
 generate $REALITY $XRAY_REALITY_USER_ID_WARP "Reality Warp" $reality $warp
 
+export host=$TEHRAN_DOMAIN
+
+generate $TCP $XRAY_TCP_USER_ID_DIRECT "Tunnel" $tcp $tunel
+generate $TCP $XRAY_TCP_USER_ID_WARP "Tunnel Warp" $tcp $tunnel $warp
