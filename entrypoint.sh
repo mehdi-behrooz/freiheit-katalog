@@ -9,7 +9,7 @@ if [[ $LOG_LEVEL == debug ]]; then
 fi
 
 if [[ $ENCODE_CONFIG == true ]]; then
-    config=$(echo $config | base64)
+    config=$(echo "$config" | base64)
 fi
 
 echo "$config" > www/output
