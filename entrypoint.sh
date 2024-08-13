@@ -2,12 +2,16 @@
 
 echo "Generating Xray configs..."
 
-configs=$(/usr/bin/generate-configs.sh)
+config=$(/usr/bin/generate-configs.sh)
 
 if [[ $LOG_LEVEL == debug ]]; then
-    echo "$configs" | sed 's/^/\t/'
+    echo "$config" | sed 's/^/\t/'
 fi
 
-echo "$configs" | base64 > www/index.html
+if [[ $ENCODE_CONFIG == true ]]; then
+    config=$(echo $config | base64)
+fi
+
+echo "$config" > www/output
 
 

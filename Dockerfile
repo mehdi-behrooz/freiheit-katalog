@@ -15,6 +15,7 @@ COPY ./www/ /www/
 
 ENV LOG_LEVEL=debug
 ENV CONFIG_PATH=/
+ENV ENCODE_CONFIG=true
 
 EXPOSE 80
 
