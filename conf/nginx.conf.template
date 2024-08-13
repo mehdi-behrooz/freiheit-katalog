@@ -1,0 +1,14 @@
+
+server {
+
+    listen 80;
+    listen [::]:80;
+    http2 on;
+
+    location ${CONFIG_PATH} {
+        alias /www/;
+        index index.html index.htm;
+    }
+
+}
+
