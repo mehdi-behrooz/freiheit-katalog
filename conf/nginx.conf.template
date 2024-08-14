@@ -6,7 +6,8 @@ server {
     http2 on;
 
     location ${CONFIG_PATH} {
-        alias /www/output;
+        alias /www/;
+        try_files output =404;
     }
 
 }
