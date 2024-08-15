@@ -1,1 +1,14 @@
-# This file is here to override the default nginx configuration. Do not remove it.
+
+server {
+
+    listen 80;
+    listen [::]:80;
+    http2 on;
+
+    location ${CONFIG_PATH} {
+        alias /www/;
+        try_files output =404;
+    }
+
+}
+
