@@ -9,15 +9,12 @@ RUN apk add curl            # for: curl
 RUN apk add bash            # for: bash
 
 COPY --chmod=755 ./entrypoint.sh /docker-entrypoint.d/
-COPY --chmod=755 ./generate-configs.sh /usr/bin/
 COPY ./conf/ /etc/nginx/templates/
 COPY ./www/ /www/
 
 ENV LOG_LEVEL=debug
 ENV CONFIG_PATH=/
 ENV ENCODE_CONFIG=true
-ENV GENERATE_REALITY_IPV4=true
-ENV GENERATE_REALITY_IPV6=true
 
 EXPOSE 80
 
