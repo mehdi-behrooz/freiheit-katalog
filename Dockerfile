@@ -6,7 +6,7 @@ RUN apk update
 RUN apk add gettext         # for: envsubst
 RUN apk add jq              # for: jq
 RUN apk add curl            # for: curl
-RUN apk add bash
+RUN apk add bash            # for: bash
 
 COPY --chmod=755 ./entrypoint.sh /docker-entrypoint.d/
 COPY --chmod=755 ./generate-configs.sh /usr/bin/
