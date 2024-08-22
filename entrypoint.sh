@@ -1,5 +1,7 @@
 #!/bin/bash
 
+indent() { sed 's/^/  /'; }
+
 echo "Generating Xray configs..."
 
 for server in ${XRAY_SERVERS//[;,]/}; do
@@ -15,7 +17,7 @@ for server in ${XRAY_SERVERS//[;,]/}; do
 done
 
 if [[ $LOG_LEVEL == debug ]]; then
-    sed 's/^/\t/g' <<<"$configs"
+    echo "$configs" | indent
 fi
 
 if [[ $ENCODE_CONFIG == true ]]; then
