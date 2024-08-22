@@ -1,0 +1,32 @@
+services:
+  katalog:
+    build: .
+    container_name: katalog
+    ports:
+      - 8000:80
+    environment:
+      - LOG_LEVEL=debug
+      - ENCODE_CONFIG=true
+      - CONFIG_PATH=/a/b/c/d
+      - LABEL=TEST
+      - XRAY_SERVERS=xray1, xray2
+
+  xray1:
+    image: ghcr.io/mehdi-behrooz/freiheit-xray:latest
+    environment:
+      - PROTOCOL=tcp
+      - USER_ID_DIRECT=00000000-0000-4000-0000-000000000000
+      - USER_ID_WARP=00000000-0000-4000-0000-000000000001
+      - GENERATE_DIRECT_CONFIGS=true
+      - GENERATE_TUNNEL_CONFIGS=true
+      - GENERATE_WARP_CONFIGS=true
+
+  xray2:
+    image: ghcr.io/mehdi-behrooz/freiheit-xray:latest
+    environment:
+      - PROTOCOL=tcp
+      - USER_ID_DIRECT=00000000-0000-4000-0000-000000000000
+      - USER_ID_WARP=00000000-0000-4000-0000-000000000001
+      - GENERATE_DIRECT_CONFIGS=true
+      - GENERATE_TUNNEL_CONFIGS=false
+      - GENERATE_WARP_CONFIGS=false
