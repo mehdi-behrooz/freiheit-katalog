@@ -1,12 +1,10 @@
 # syntax=docker/dockerfile:1
+# checkov:skip=CKV_DOCKER_3: nginx wants to be run as root
 
 FROM nginx:1.27-alpine
 
-RUN apk update
-RUN apk add gettext         # for: envsubst
-RUN apk add jq              # for: jq
-RUN apk add curl            # for: curl
-RUN apk add bash            # for: bash
+RUN apk update \
+    && apk add bash curl jq gettext-envsubst
 
 COPY --chmod=755 ./entrypoint.sh /docker-entrypoint.d/
 COPY ./conf/ /etc/nginx/templates/
