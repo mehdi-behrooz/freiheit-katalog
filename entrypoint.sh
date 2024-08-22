@@ -5,7 +5,7 @@ echo "Generating Xray configs..."
 for server in ${XRAY_SERVERS//[;,]/}; do
     echo "Querying $server..."
     config=$(
-        curl --retry 20 \
+        curl -s --retry 20 \
             --retry-connrefused \
             --retry-delay 3 \
             "http://$server:81/"
