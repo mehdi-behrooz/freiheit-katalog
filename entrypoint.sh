@@ -21,6 +21,7 @@ if [[ $ENCODE_CONFIG == true ]]; then
     configs=$(echo "$configs" | base64)
 fi
 
-echo "$configs" > www/output
+mkdir -p /www
+echo "$configs" > /www/output
 
 

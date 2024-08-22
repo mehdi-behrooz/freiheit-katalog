@@ -10,7 +10,6 @@ RUN apk add bash            # for: bash
 
 COPY --chmod=755 ./entrypoint.sh /docker-entrypoint.d/
 COPY ./conf/ /etc/nginx/templates/
-COPY ./www/ /www/
 
 ENV LOG_LEVEL=debug
 ENV CONFIG_PATH=/
