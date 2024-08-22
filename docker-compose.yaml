@@ -6,7 +6,7 @@ services:
       - 8000:80
     environment:
       - LOG_LEVEL=debug
-      - ENCODE_CONFIG=true
+      - ENCODE_CONFIG=false
       - CONFIG_PATH=/a/b/c/d
       - LABEL=TEST
       - XRAY_SERVERS=xray1, xray2
