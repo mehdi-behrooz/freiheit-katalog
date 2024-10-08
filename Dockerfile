@@ -16,6 +16,6 @@ ENV ENCODE_CONFIG=true
 EXPOSE 80
 
 HEALTHCHECK  --interval=15m \
-    --start-interval=30s \
     --start-period=30s \
+    --start-interval=10s \
     CMD curl -fs http://localhost:80/${CONFIG_PATH} || exit 1
